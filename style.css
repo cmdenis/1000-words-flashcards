@@ -1,0 +1,50 @@
+:root { --primary: #2563eb; --dark: #1e293b; --bg: #f8fafc; }
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+body { margin: 0; font-family: system-ui,sans-serif; background: var(--bg); color: var(--dark); display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+
+header { display: flex; align-items: center; padding: 1rem; background: #fff; border-bottom: 1px solid #e2e8f0; }
+
+/* Hamburger */
+#menu-toggle { background: none; border: none; cursor: pointer; padding: 10px; z-index: 1001; }
+.hamburger, .hamburger::after, .hamburger::before { width: 24px; height: 3px; background: var(--dark); display: block; transition: 0.3s; }
+.hamburger::after, .hamburger::before { content: ''; position: absolute; }
+.hamburger::before { margin-top: -8px; }
+.hamburger::after { margin-top: 8px; }
+
+/* Menu Latéral */
+.side-menu { position: fixed; top: 0; left: -250px; width: 250px; height: 100%; background: #fff; box-shadow: 2px 0 10px rgba(0,0,0,0.1); transition: 0.3s; z-index: 1000; padding: 2rem 1rem; }
+.side-menu.open { left: 0; }
+.lang-btn { width: 100%; padding: 12px; margin-bottom: 8px; background: #f1f5f9; border: none; border-radius: 8px; cursor: pointer; }
+
+/* Flashcard */
+main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; }
+.card-container { width: 100%; max-width: 350px; perspective: 1000px; aspect-ratio: 3/4; }
+
+/* REMPLACE PAR CECI : */
+.card { width: 100%; height: 100%; cursor: pointer; perspective: 1000px; }
+
+.card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); transform-style: preserve-3d; }
+
+.card.flipped .card-inner { transform: rotateY(180deg); }
+
+/* Les deux faces */
+/* Les deux faces avec bordure et ombre */
+.card-back, .card-front { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 20px; padding: 20px; /* AJOUT DE LA BORDURE ICI */ border: 2px solid #e2e8f0; background: #fff; /* OMBRE POUR PLUS DE PROFONDEUR */ box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),0 8px 10px -6px rgba(0, 0, 0, 0.1); }
+
+/* On change la couleur de bordure pour la face arrière (bleue) */
+.card-back { background: var(--primary); color: #fff; transform: rotateY(180deg); border-color: rgba(255, 255, 255, 0.2); /* Bordure discrète sur le bleu */ }
+
+#next-btn { margin-top: 30px; padding: 15px 40px; font-size: 1.1rem; background: var(--dark); color: #fff; border: none; border-radius: 50px; cursor: pointer; }
+
+footer { padding: 1rem; background: #fff; border-top: 1px solid #e2e8f0; text-align: center; }
+.settings input { width: 60px; padding: 5px; border-radius: 5px; border: 1px solid #ccc; }
+
+/* Taille du mot principal (face avant) */
+#foreign-word { font-size: 3.5rem; /* Très large pour la lisibilité */ font-weight: 800; margin: 0; word-break: break-word; }
+
+/* Taille de la réponse (face arrière) */
+#translation-word { font-size: 2.2rem; font-weight: 600; text-align: center; line-height: 1.2; }
+
+/* Style spécifique pour la prononciation [bracket] */
+#translation-word small { display: block; font-size: 1.2rem; /* Prononciation un peu plus petite que la traduction */ font-weight: 400; opacity: 0.8; margin-bottom: 10px; font-style: italic; }

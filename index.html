@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Flashcards 1000 Mots</title>
+
+    <script src="languages/spanish_english.js"></script>
+    <script src="languages/korean_english.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <button id="menu-toggle" aria-label="Menu Langues">
+        <div class="hamburger"></div>
+      </button>
+      <h1 id="app-title">Flashcards</h1>
+    </header>
+
+    <nav id="side-menu" class="side-menu">
+      <h3>Langues</h3>
+      <div id="lang-list"></div>
+      <!-- Les boutons seront injectés ici -->
+    </nav>
+
+    <main>
+      <div class="card-container">
+        <div id="flashcard" class="card">
+          <div class="card-inner">
+            <div class="card-front">
+              <p id="foreign-word">Chargement...</p>
+            </div>
+            <div class="card-back">
+              <p id="translation-word">...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button id="next-btn">Suivant</button>
+    </main>
+
+    <footer>
+      <div class="settings">
+        <label for="pool-size">Nombre de mots (Pool) :</label>
+        <input type="number" id="pool-size" value="1000" min="1" max="1000" />
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
