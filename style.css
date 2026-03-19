@@ -1,7 +1,7 @@
 :root { --primary: #2563eb; --dark: #1e293b; --bg: #f8fafc; }
 
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-body { margin: 0; font-family: system-ui,sans-serif; background: var(--bg); color: var(--dark); display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+body { margin: 0; font-family: system-ui,sans-serif; background: var(--bg); color: var(--dark); display: flex; flex-direction: column; min-height: 100dvh; /* instead of height */ overflow-x: hidden; /* allow vertical scroll */ }
 
 header { display: flex; align-items: center; padding: 1rem; background: #fff; border-bottom: 1px solid #e2e8f0; }
 
@@ -13,7 +13,7 @@ header { display: flex; align-items: center; padding: 1rem; background: #fff; bo
 .hamburger::after { margin-top: 8px; }
 
 /* Menu Latéral */
-.side-menu { position: fixed; top: 0; left: -250px; width: 250px; height: 100%; background: #fff; box-shadow: 2px 0 10px rgba(0,0,0,0.1); transition: 0.3s; z-index: 1000; padding: 2rem 1rem; }
+.side-menu { position: fixed; top: 0; left: -250px; width: 250px; height: 100%; background: #fff; box-shadow: 2px 0 10px rgba(0,0,0,0.1); transition: 0.3s; z-index: 2000; /* 🔥 increase this */ padding: 2rem 1rem; }
 .side-menu.open { left: 0; }
 .lang-btn { width: 100%; padding: 12px; margin-bottom: 8px; background: #f1f5f9; border: none; border-radius: 8px; cursor: pointer; }
 
@@ -39,6 +39,8 @@ main { flex: 1; display: flex; flex-direction: column; align-items: center; just
 
 footer { padding: 1rem; background: #fff; border-top: 1px solid #e2e8f0; text-align: center; }
 .settings input { width: 60px; padding: 5px; border-radius: 5px; border: 1px solid #ccc; }
+
+.settings { display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap; }
 
 /* Taille du mot principal (face avant) */
 #foreign-word { font-size: 3.5rem; /* Très large pour la lisibilité */ font-weight: 800; margin: 0; word-break: break-word; }

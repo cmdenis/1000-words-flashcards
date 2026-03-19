@@ -1,8 +1,8 @@
 // --- CONFIGURATION ---
 // "data" doit correspondre exactement au nom de la variable dans vos fichiers .js
 const availableLanguages = [
-    { name: "Espagnol", data: spanish_english },
-    { name: "Coréen", data: korean_english }
+    { name: "Spanish to English", data: spanish_english },
+    { name: "Korean to English", data: korean_english }
 ];
 
 let allWords = [];
@@ -29,7 +29,7 @@ function initMenu() {
 // 2. Sélection de la langue
 function selectLanguage(data, name) {
     allWords = data;
-    document.getElementById('app-title').textContent = `1000 Mots : ${name}`;
+    document.getElementById('app-title').textContent = `1000 Words: ${name}`;
     updateWord();
 }
 
@@ -37,8 +37,21 @@ function selectLanguage(data, name) {
 function updateWord() {
     if (!allWords || allWords.length === 0) return;
     
-    const poolSize = parseInt(document.getElementById('pool-size').value) || 1000;
-    const pool = allWords.slice(0, poolSize);
+    const start = parseInt(document.getElementById('start-index').value) || 1;
+    const end = parseInt(document.getElementById('end-index').value) || allWords.length;
+
+    // Clamp values (important)
+    const safeStart = Math.max(1, Math.min(start, allWords.length));
+    const safeEnd = Math.max(safeStart, Math.min(end, allWords.length));
+
+    // Slice uses 0-based index
+    const pool = allWords.slice(safeStart - 1, safeEnd);
+
+    if (pool.length === 0) {
+        console.warn("Empty pool range");
+        return;
+    }
+
     const randomWord = pool[Math.floor(Math.random() * pool.length)];
     
     card.classList.remove('flipped');

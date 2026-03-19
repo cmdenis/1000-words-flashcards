@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Flashcards 1000 Mots</title>
+    <title>Flashcards 1000 Words</title>
 
     <script src="languages/spanish_english.js"></script>
     <script src="languages/korean_english.js"></script>
@@ -20,7 +20,7 @@
     </header>
 
     <nav id="side-menu" class="side-menu">
-      <h3>Langues</h3>
+      <h3>Languages</h3>
       <div id="lang-list"></div>
       <!-- Les boutons seront injectés ici -->
     </nav>
@@ -30,7 +30,7 @@
         <div id="flashcard" class="card">
           <div class="card-inner">
             <div class="card-front">
-              <p id="foreign-word">Chargement...</p>
+              <p id="foreign-word">Loading...</p>
             </div>
             <div class="card-back">
               <p id="translation-word">...</p>
@@ -38,13 +38,16 @@
           </div>
         </div>
       </div>
-      <button id="next-btn">Suivant</button>
+      <button id="next-btn">Next</button>
     </main>
 
     <footer>
       <div class="settings">
-        <label for="pool-size">Nombre de mots (Pool) :</label>
-        <input type="number" id="pool-size" value="1000" min="1" max="1000" />
+        <label>From :</label>
+        <input type="number" id="start-index" value="1" min="1" max="1000" />
+
+        <label>To :</label>
+        <input type="number" id="end-index" value="1000" min="1" max="1000" />
       </div>
     </footer>
 
