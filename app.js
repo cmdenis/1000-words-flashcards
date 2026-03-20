@@ -2,7 +2,8 @@
 // "data" doit correspondre exactement au nom de la variable dans vos fichiers .js
 const availableLanguages = [
     { name: "Spanish to English", data: spanish_english },
-    { name: "Korean to English", data: korean_english }
+    { name: "Korean to English", data: korean_english },
+    { name: "Spanish to French", data: spanish_french }
 ];
 
 let allWords = [];
@@ -63,7 +64,9 @@ function updateWord() {
 
         
         // Construction du contenu de la face arrière
-        let backContent = randomWord.english;
+        // Dans updateWord(), remplacez la ligne backContent par :
+        let backContent = randomWord.translated || randomWord.english || "No translation";
+
         
         // Si une prononciation est disponible (comme pour le coréen), on l'ajoute
         console.log(randomWord.pronunciation)
